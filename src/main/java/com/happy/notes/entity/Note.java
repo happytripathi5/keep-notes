@@ -1,0 +1,39 @@
+//Step 1 — Create the Note Entity
+//
+//Your first goal is:
+//
+//Tell Spring/Hibernate what a Note looks like in the database.
+//
+//Create a Note class inside an entity package.
+//
+//The class should have 3 fields:
+//
+//id → uniquely identifies each note
+//title → note title
+//content → actual note content
+//
+//Then use JPA annotations to tell Hibernate:
+//
+//This class represents a database table.
+//id is the primary key.
+//id should be automatically generated.
+//
+//
+//
+//
+
+
+package com.happy.notes.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+@Entity
+public class Note {
+
+    @GeneratedValue
+    @Id
+    Long id;
+    String title;
+    String content;
+}
