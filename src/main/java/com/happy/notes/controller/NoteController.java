@@ -1,5 +1,12 @@
 package com.happy.notes.controller;
 
+import com.happy.notes.entity.Note;
+import com.happy.notes.service.NoteService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 //Expose an http endpoint such as POST /notes
 //The client will send:
 //
@@ -9,6 +16,18 @@ package com.happy.notes.controller;
 //to the controller.
 //
 //The controller passes the Note to the service.
-
+@RestController
 public class NoteController {
+    NoteService noteservice;
+
+    public NoteController(NoteService noteService){
+        this.noteservice=noteService;
+    }
+
+    @PostMapping("/note")
+
+    public Note save(@RequestBody Note note){
+        return noteservice.save(note);
+
+    }
 }

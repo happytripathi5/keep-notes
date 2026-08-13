@@ -23,9 +23,9 @@ public class NoteService {
     NoteRepository noteRepository;
 
     public NoteService(NoteRepository noteRepository){
-        this.noteRepository= noteRepository;
+        this.noteRepository= noteRepository ;
     }
-    Note save(Note note){
+    public Note save(Note note){
        return noteRepository.save(note);
 
 
