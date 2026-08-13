@@ -3,10 +3,7 @@ package com.happy.notes.controller;
 import com.happy.notes.entity.Note;
 import com.happy.notes.service.NoteService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 //Expose an http endpoint such as POST /notes
 //The client will send:
@@ -32,5 +29,12 @@ public class NoteController {
 
     }
 
-//    @PutMapping("id/note")
+    @PutMapping("/note/{id}")
+
+    public Note update(@RequestBody Note note,@PathVariable Long id){
+        return noteservice.update(id,note);
+    }
+
+
+
 }

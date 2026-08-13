@@ -32,7 +32,7 @@ public class NoteService {
 
     }
 
-    Note update(Long id,Note note){
+    public Note update(Long id, Note note){
        Optional<Note> notee= noteRepository.findById(id);
        if(notee.isPresent()){
           Note newnote=notee.get();
