@@ -4,6 +4,7 @@ import com.happy.notes.entity.Note;
 import com.happy.notes.service.NoteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,4 +31,6 @@ public class NoteController {
         return noteservice.save(note);
 
     }
+
+//    @PutMapping("id/note")
 }

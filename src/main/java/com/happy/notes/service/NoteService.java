@@ -5,6 +5,8 @@ import com.happy.notes.entity.Note;
 import com.happy.notes.repository.NoteRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 //Receive a Note and tell the repository to save it.
 //The controller will eventually say:
 //
@@ -27,6 +29,27 @@ public class NoteService {
     }
     public Note save(Note note){
        return noteRepository.save(note);
+
+    }
+
+    Note update(Long id,Note note){
+       Optional<Note> notee= noteRepository.findById(id);
+       if(notee.isPresent()){
+          Note newnote=notee.get();
+           newnote.setTitle(note.getTitle());
+           newnote.setContent(note.getContent());
+
+           return noteRepository.save(newnote);
+
+       }
+       else{
+           throw new RuntimeException("Note not found");
+       }
+
+
+
+
+
 
 
 
