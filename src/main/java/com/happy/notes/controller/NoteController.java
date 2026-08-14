@@ -41,6 +41,12 @@ public class NoteController {
         noteservice.delete(id);
     }
 
+    //controller to get a id
+    @GetMapping("/note/{id}")
+    public Note getting(@PathVariable Long id){
+        return noteservice.getbyID(id);
+    }
+
 
 
 

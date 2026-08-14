@@ -50,4 +50,18 @@ public class NoteService {
     public void delete(Long id){
         noteRepository.deleteById(id);
     }
+
+    //will make method to get though a id
+
+    public Note getbyID(Long id){
+
+        Optional<Note> note=noteRepository.findById(id);
+        if(note.isPresent()){
+            return note.get();
+        }
+        else{
+            throw new RuntimeException("Note not there");
+        }
+    }
+
 }
