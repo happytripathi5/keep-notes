@@ -46,12 +46,8 @@ public class NoteService {
            throw new RuntimeException("Note not found");
        }
 
-
-
-
-
-
-
-
+    }
+    public void delete(Long id){
+        noteRepository.deleteById(id);
     }
 }
