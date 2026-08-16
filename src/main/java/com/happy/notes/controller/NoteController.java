@@ -73,5 +73,17 @@ public class NoteController {
 
 
 
+//important non case sensitive endpoint
+    //test with this;- http://localhost:8080/note/search/contains?title=first
+    @GetMapping("/note/search/contains")
+    public List<Note> searchUsingTitlecontaining(@RequestParam String title){
+        return noteservice.searchbytitlecontaining(title);
+
+
+
+    }
+
+
+
 
 }

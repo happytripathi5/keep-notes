@@ -91,6 +91,13 @@ public class NoteService {
 
     }
 
+
+    //a proper search for normal user no need to search keeping the cases
+    public List<Note> searchbytitlecontaining(String title){
+
+        return noteRepository.findByTitleContainingIgnoreCase(title);
+    }
+
     ;
 
 

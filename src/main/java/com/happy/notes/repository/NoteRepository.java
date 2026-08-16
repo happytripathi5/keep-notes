@@ -10,6 +10,8 @@ public interface NoteRepository extends JpaRepository<Note,Long> {
 
     List<Note> findByTitle(String title);
 
-    String title(String title);
+
+    List<Note> findByTitleContainingIgnoreCase(String title);
+
 }
 
