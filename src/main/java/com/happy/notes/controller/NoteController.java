@@ -5,6 +5,8 @@ import com.happy.notes.service.NoteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 //Expose an http endpoint such as POST /notes
 //The client will send:
 //
@@ -45,6 +47,11 @@ public class NoteController {
     @GetMapping("/note/{id}")
     public Note getting(@PathVariable Long id){
         return noteservice.getbyID(id);
+    }
+
+    @GetMapping("/note")
+    public List<Note> get(){
+        return noteservice.get();
     }
 
 

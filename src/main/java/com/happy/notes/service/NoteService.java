@@ -5,6 +5,7 @@ import com.happy.notes.entity.Note;
 import com.happy.notes.repository.NoteRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 //Receive a Note and tell the repository to save it.
@@ -62,6 +63,11 @@ public class NoteService {
         else{
             throw new RuntimeException("Note not there");
         }
+    }
+
+    public List<Note> get(){
+
+        return noteRepository.findAll();
     }
 
 }
