@@ -36,6 +36,7 @@ public class Note {
     private Long id;
     private String title;
     private String content;
+    private boolean completed;
     public Long getId(){
         return this.id;
 
@@ -57,4 +58,16 @@ public class Note {
         this.content= content;
 
     }
+
+    //for setting iscompleted
+    public void setCompleted(boolean completed){
+        this.completed=completed;
+    }
+
+    //for getting iscompleted
+
+    public boolean getCompleted(){
+        return this.completed;
+    }
 }
+

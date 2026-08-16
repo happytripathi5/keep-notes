@@ -4,6 +4,7 @@ package com.happy.notes.service;
 import com.happy.notes.entity.Note;
 import com.happy.notes.repository.NoteRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -69,5 +70,20 @@ public class NoteService {
 
         return noteRepository.findAll();
     }
+
+    public Note completed(Long id, boolean completed){
+       Optional<Note> notee= noteRepository.findById(id);
+       if(notee.isPresent()){
+           Note note= notee.get();
+           note.setCompleted(true);
+           return noteRepository.save(note);
+
+       }
+       else{
+           throw new RuntimeException("Note not there");
+       }
+
+    };
+
 
 }

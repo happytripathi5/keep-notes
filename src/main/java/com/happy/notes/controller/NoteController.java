@@ -55,6 +55,13 @@ public class NoteController {
     }
 
 
+//PATCH → modify only part of the resource.
+    @PatchMapping("note/{id}/completed")
+    public Note checkcomplete(@PathVariable Long id,boolean completed){
+        return noteservice.completed(id,completed);
+    }
+
+
 
 
 
