@@ -62,6 +62,15 @@ public class NoteController {
     }
 
 
+    //lets search a id using search of title
+
+    @GetMapping("/note/search")
+//    GET http://localhost:8080/note/search?title=My%20First%20Notessaasaas
+//    try with it
+    public List<Note> search(@RequestParam String title){
+        return noteservice.searchBytitle(title);
+    }
+
 
 
 

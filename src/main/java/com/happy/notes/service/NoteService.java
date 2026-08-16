@@ -4,7 +4,6 @@ package com.happy.notes.service;
 import com.happy.notes.entity.Note;
 import com.happy.notes.repository.NoteRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -83,7 +82,16 @@ public class NoteService {
            throw new RuntimeException("Note not there");
        }
 
-    };
+    }
+
+
+    public List<Note> searchBytitle(String title){
+
+        return noteRepository.findByTitle(title);
+
+    }
+
+    ;
 
 
 }
