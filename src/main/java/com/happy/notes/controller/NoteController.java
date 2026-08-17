@@ -83,7 +83,15 @@ public class NoteController {
 
     }
 
+    //18aug creating for searching list of notes with completed filter
+
+    @GetMapping("/note/search/isCompleted")
+    public List<Note> searchFilterIsCompleted(@RequestParam boolean completed){
+        return noteservice.searchbycompleted(completed);
+    }
+
 
 
 
 }
+

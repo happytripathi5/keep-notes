@@ -98,6 +98,13 @@ public class NoteService {
         return noteRepository.findByTitleContainingIgnoreCase(title);
     }
 
+    //18aug created service to search list of notes with there status completed
+  //http://localhost:8080/note/search/isCompleted?completed=false
+    public List<Note> searchbycompleted(boolean completed){
+        return noteRepository.findByCompleted(completed);
+
+    }
+
     ;
 
 
