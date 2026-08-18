@@ -2,6 +2,7 @@ package com.happy.notes.controller;
 
 import com.happy.notes.entity.Note;
 import com.happy.notes.service.NoteService;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -99,6 +100,14 @@ public class NoteController {
     public List<Note> searchBySortedTitle(@RequestParam String direction){
         return noteservice.searchBytitleSorted(direction);
     }
+
+    //creating another controller for sort contiaing&filter&sort
+    //http://localhost:8080/note/search/isCompleted/sort?title=spring&completed=true
+    @GetMapping("/note/search/isCompleted/sort")
+    public List<Note> searchFilterAndSort (@RequestParam String title, @RequestParam boolean completed){
+        return noteservice.searchFilterSort(title,completed);
+    }
+
 
 
 

@@ -114,6 +114,24 @@ public class NoteService {
 // .ascending() makes that Sort object sort A → Z.
 // .descending() makes that Sort object sort Z → A.
 
+
+    //notes
+
+
+
+// Search + Filter + Sort together
+//
+//Right now you have them separately:
+//
+//Search by title → contains
+//Filter → completed=true/false
+//Sort → asc/desc
+//
+//Now we'll combine them into one API.
+
+    //  ;
+    // GET /note/search?title=spring&completed=true&direction=asc like this we call
+
     public List<Note> searchBytitleSorted(String direction){
 
         Sort sort ;
@@ -136,8 +154,21 @@ public class NoteService {
 
     }
 
+    //make a service accepting title for search and completed for filter and then sort and return the list of notes
 
-    ;
+    public List<Note> searchFilterSort(String title , boolean completed){
+        Sort sort= Sort.by("title").descending();
+       return noteRepository.findByTitleContainingIgnoreCaseAndCompleted(title,completed,sort);
+
+    }
+
+
+
+
+
+
+
+
 
 
 }

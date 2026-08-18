@@ -1,6 +1,7 @@
 package com.happy.notes.repository;
 
 import com.happy.notes.entity.Note;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -19,7 +20,9 @@ public interface NoteRepository extends JpaRepository<Note,Long> {
 
     //18 aug nighr to make a method for search by title and sorted in some manner
 
-    //18 aug night :_sorting does not need any method in the repo it already have it with sort class
+    //18 aug night:  make a sevice reciver both search contianing /filter and sort by asc in one call
+//   like this:- GET /note/search?title=spring&completed=true&direction=asc
 
+    List<Note> findByTitleContainingIgnoreCaseAndCompleted(String title, boolean completed, Sort sort);
 }
 
