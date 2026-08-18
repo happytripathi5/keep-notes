@@ -91,6 +91,16 @@ public class NoteController {
     }
 
 
+    //18aug creating for returning all the list of notes in sorted order
+//    GET http://localhost:8080/note/sort?direction=asc
+//    GET http://localhost:8080/note/sort?direction=desc
+
+    @GetMapping("/note/sort")
+    public List<Note> searchBySortedTitle(@RequestParam String direction){
+        return noteservice.searchBytitleSorted(direction);
+    }
+
+
 
 
 }

@@ -17,6 +17,9 @@ public interface NoteRepository extends JpaRepository<Note,Long> {
 
     List<Note> findByCompleted(boolean completed);
 
+    //18 aug nighr to make a method for search by title and sorted in some manner
+
+    //18 aug night :_sorting does not need any method in the repo it already have it with sort class
 
 }
 

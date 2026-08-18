@@ -3,6 +3,7 @@ package com.happy.notes.service;
 
 import com.happy.notes.entity.Note;
 import com.happy.notes.repository.NoteRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -104,6 +105,37 @@ public class NoteService {
         return noteRepository.findByCompleted(completed);
 
     }
+
+
+    //18 aug night ,need a function to get all the notes with everything sorted in some order
+    // Sort is a class.
+// Sort.by("title") is a static method that returns a Sort object containing
+// the instruction to sort by the "title" field.
+// .ascending() makes that Sort object sort A → Z.
+// .descending() makes that Sort object sort Z → A.
+
+    public List<Note> searchBytitleSorted(String direction){
+
+        Sort sort ;
+
+        if(direction.equalsIgnoreCase("asc")){
+
+                sort= Sort.by("title").ascending();
+                }
+        else if (direction.equalsIgnoreCase("desc")){
+            sort=Sort.by("title").descending();
+        }
+        else{
+            sort=Sort.by("title").ascending();
+        }
+        //else because if nothing in the direction so what to do
+
+
+
+       return noteRepository.findAll(sort);
+
+    }
+
 
     ;
 
