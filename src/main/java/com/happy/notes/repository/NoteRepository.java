@@ -18,7 +18,7 @@ public interface NoteRepository extends JpaRepository<Note,Long> {
 
     List<Note> findByCompleted(boolean completed);
 
-    //18 aug nighr to make a method for search by title and sorted in some manner
+    //18 aug nighr to make a memthod for search by title and sorted in some manner
 
     //18 aug night:  make a sevice reciver both search contianing /filter and sort by asc in one call
 //   like this:- GET /note/search?title=spring&completed=true&direction=asc
