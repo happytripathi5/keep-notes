@@ -2,6 +2,7 @@ package com.happy.notes.service;
 
 
 import com.happy.notes.entity.Note;
+import com.happy.notes.exception.NoteNotFoundException;
 import com.happy.notes.repository.NoteRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -62,7 +63,7 @@ public class NoteService {
             return note.get();
         }
         else{
-            throw new RuntimeException("Note not there");
+            throw new NoteNotFoundException("not found");
         }
     }
 
@@ -75,12 +76,14 @@ public class NoteService {
        Optional<Note> notee= noteRepository.findById(id);
        if(notee.isPresent()){
            Note note= notee.get();
-           note.setCompleted(true);
+           note.setCompleted(completed);
            return noteRepository.save(note);
 
        }
        else{
-           throw new RuntimeException("Note not there");
+//          throw new RuntimeException("Note not there");
+           throw new NoteNotFoundException("Note not there to mark completed/not");
+
        }
 
     }
